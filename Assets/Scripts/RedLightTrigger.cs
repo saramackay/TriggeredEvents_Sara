@@ -6,7 +6,8 @@ using UnityEngine.Playables;
 
 public class RedLightTrigger : MonoBehaviour
 {
-    //public PlayableDirector LightTimeline;
+    public PlayableDirector DoorClose;
+    public PlayableDirector DoorOpen;
     public GameObject RedLights;
     public GameObject WhiteLights;
 
@@ -20,13 +21,13 @@ public class RedLightTrigger : MonoBehaviour
     {
         RedLights.SetActive(true);
         WhiteLights.SetActive(false);
-        //LightTimeline.Play();
+        DoorClose.Play();
     }
 
     void OnTriggerExit(Collider other)
     {
         RedLights.SetActive(false);
         WhiteLights.SetActive(true);
-        //LightTimeline.Play();
+        DoorOpen.Play();
     }
 }
