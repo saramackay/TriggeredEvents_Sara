@@ -5,15 +5,16 @@ using UnityEngine.Playables;
 
 public class Ghost_Script : MonoBehaviour
 {
-    public PlayableDirector GhostTimeline;
-    bool Played = false;
+    public GameObject AnimatedObject;
+    private Animator Zombie;
+
+    private void Start()
+    {
+        Zombie = AnimatedObject.GetComponent<Animator>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        if (Played == false)
-        {
-            GhostTimeline.Play();
-            Played = true;
-        }
+        Zombie.enabled = true;
     }
 }
