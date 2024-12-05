@@ -5,19 +5,16 @@ using UnityEngine.Playables;
 
 public class ZombieDoor_Script : MonoBehaviour
 {
-    public GameObject AnimatedObject;
-
-    private Animator zombieanimator;
-
-    private void Start()
-    {
-        zombieanimator = AnimatedObject.GetComponent<Animator>();
-        zombieanimator.enabled = false;
-    }
+    public PlayableDirector zombiedoor;
+    bool played = false;
 
     void OnTriggerEnter(Collider other)
     {
-        zombieanimator.enabled = true;
+        if (played == false)
+        {
+            zombiedoor.Play();
+            played = true;
+        }
     }
 
 }
